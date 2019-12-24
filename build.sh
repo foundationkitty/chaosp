@@ -550,6 +550,7 @@ apply_patches() {
 
   revert_previous_run_patches
   patch_mkbootfs
+  patch_tracfone-vzwentp
   patch_add_opengapps
   patch_custom
   patch_aosp_removals
@@ -569,6 +570,11 @@ apply_patches() {
 patch_mkbootfs(){
   cd $BUILD_DIR/system/core/
   patch -p1 --no-backup-if-mismatch < ${CHAOSP_DIR}/mkbootfs.patch
+}
+
+patch_tracfone-vzwentp(){
+  cd $BUILD_DIR/
+  patch -p1 --no-backup-if-mismatch < ${CHAOSP_DIR}/trafcone-vzwentp.patch
 }
 
 # This patch is needed to make opengapps included/called during the build phase
